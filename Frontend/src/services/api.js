@@ -1,5 +1,5 @@
 export const addLead = async (data) => {
-  const res = await fetch("http://localhost:3000/add", {
+  const res = await fetch("https://lead-management-system-1-ojrw.onrender.com/add", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -15,12 +15,12 @@ export const addLead = async (data) => {
 };
 
 export const getLeads = async () => {
-  const res = await fetch("http://localhost:3000/leads");
+  const res = await fetch("https://lead-management-system-1-ojrw.onrender.com/leads");
   return res.json();
 };
 
 export const updateStatus = async (data) => {
-  const res = await fetch("http://localhost:3000/update", {
+  const res = await fetch("https://lead-management-system-1-ojrw.onrender.com/update", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -31,7 +31,7 @@ export const updateStatus = async (data) => {
 };
 
 export const deleteLead = async (id) => {
-  const res = await fetch(`http://localhost:3000/delete/${id}`, {
+  const res = await fetch(`https://lead-management-system-1-ojrw.onrender.com/${id}`, {
     method: "DELETE",
   });
   return res.json();
