@@ -125,7 +125,9 @@ else if (req.method === "PUT" && req.url === "/update") {
 
 else if (req.method === "DELETE" && req.url.startsWith("/delete/")) {
   try {
-    const id = parseInt(req.url.split("/")[2]);
+    const url = new URL(req.url, `http://${req.headers.host}`);
+const parts = url.pathname.split("/");
+const id = parseInt(parts[2]);
 
     if (!id) {
       res.statusCode = 400;
