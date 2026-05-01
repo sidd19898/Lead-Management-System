@@ -123,8 +123,9 @@ else if (req.method === "PUT" && req.url === "/update") {
 }
 
 
-else if (req.method === "DELETE" && req.url.startsWith("/delete/")) {
+else if (req.method === "DELETE" && req.url.startsWith("/leads/")) {
   try {
+     console.log("DELETE HIT", id);
     const id = parseInt(req.url.split("/")[2]);
 
     if (!id) {
@@ -135,6 +136,7 @@ else if (req.method === "DELETE" && req.url.startsWith("/delete/")) {
     await pool.query("DELETE FROM leads WHERE id=$1", [id]);
 
     res.end(JSON.stringify({ message: "Lead deleted " }));
+    console.log("DELETE HIT", id);
 
   } catch (err) {
     console.error(err);
