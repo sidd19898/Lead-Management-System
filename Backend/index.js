@@ -28,6 +28,12 @@ const server = http.createServer(async (req, res) => {
     res.writeHead(200);
     return res.end();
   }
+
+  if (req.method === "GET" && req.url === "/") {
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  return res.end("API is running 🚀");
+}
+
   // ADD LEAD
   if (req.method === "POST" && req.url === "/add") {
   let body = "";
@@ -137,7 +143,11 @@ else if (req.method === "DELETE" && req.url.startsWith("/delete/")) {
   }
 }
 
+
+
+
 });
+
 
 const PORT = process.env.PORT || 5000;
 
