@@ -10,6 +10,7 @@ function Home() {
   const fetchLeads = async () => {
     const data = await getLeads();
     setLeads(data);
+   
   };
 
   useEffect(() => {
@@ -17,9 +18,13 @@ function Home() {
   }, []);
 
   //  FILTER
-  const filteredLeads = leads.filter((lead) =>
-    lead.name.toLowerCase().includes(search.toLowerCase())
-  );
+const filteredLeads = Array.isArray(leads)
+  ? leads.filter(
+      (lead) =>
+        lead?.name &&
+        lead.name.toLowerCase().includes(search.toLowerCase())
+    )
+  : [];
 
   return (
     <div className="container">
