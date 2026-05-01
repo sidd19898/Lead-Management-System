@@ -31,7 +31,7 @@ export const updateStatus = async (data) => {
 };
 
 export const deleteLead = async (id) => {
-  const res = await fetch(`https://lead-management-system-1-ojrw.onrender.com/${id}`, {
+  const res = await fetch(`https://lead-management-system-1-ojrw.onrender.com/delete/${id}`, {
     method: "DELETE",
   });
   return res.json();
